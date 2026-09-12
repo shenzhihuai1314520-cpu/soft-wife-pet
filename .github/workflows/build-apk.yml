@@ -27,8 +27,8 @@ jobs:
       - name: Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Install SDK 34
-        run: sdkmanager "platforms;android-34" "build-tools;34.0.0"
+      - name: Install SDK 35
+        run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
 
       - name: Gradle
         uses: gradle/actions/setup-gradle@v4
@@ -37,6 +37,9 @@ jobs:
 
       - name: Unzip project
         run: unzip -q "SoftWifePet_V0.3_GitHub云编译版.zip" -d project
+
+      - name: Patch compileSdk
+        run: sed -i 's/compileSdk = 34/compileSdk = 35/' project/SoftWifePet_V0.3_CloudBuild/app/build.gradle.kts
 
       - name: Build APK
         run: |
