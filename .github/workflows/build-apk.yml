@@ -36,7 +36,7 @@ jobs:
           gradle-version: '8.11.1'
 
       - name: Unzip project
-        run: unzip -q wife-pet.zip -d project
+        run: unzip -q "SoftWifePet_V0.3_GitHub云编译版.zip" -d project
 
       - name: Build APK
         run: |
